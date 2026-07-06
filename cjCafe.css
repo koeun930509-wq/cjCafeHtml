@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+  background: #f5f6f8;
+  color: #222;
+}
+
+header {
+  background: #4b3621;
+  color: #fff;
+  padding: 20px 24px;
+}
+
+header h1 {
+  margin: 0 0 4px 0;
+  font-size: 24px;
+}
+
+header .caption {
+  margin: 0;
+  font-size: 13px;
+  color: #d8c8b8;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar {
+  flex: 0 0 240px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar h2 {
+  font-size: 15px;
+  margin: 0 0 10px 0;
+}
+
+.sidebar .filter-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.sidebar .filter-actions button {
+  flex: 1;
+  font-size: 12px;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sidebar .filter-actions button:hover {
+  background: #e4e4e4;
+}
+
+#dongFilter {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+#dongFilter label {
+  display: block;
+  font-size: 13px;
+  padding: 3px 0;
+  cursor: pointer;
+}
+
+.sidebar input[type="text"] {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.metric-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.metric-card .value {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  color: #4b3621;
+}
+
+.metric-card .label {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+section.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+section.card h2 {
+  font-size: 16px;
+  margin: 0 0 12px 0;
+}
+
+.map-scroll {
+  overflow-x: auto;
+  border-radius: 6px;
+}
+
+#map {
+  height: 480px;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.chart-scroll {
+  overflow-x: auto;
+}
+
+.chart-inner {
+  width: 100%;
+}
+
+.table-wrap {
+  max-height: 480px;
+  overflow-x: auto;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background: #4b3621;
+  color: #fff;
+  text-align: left;
+  padding: 8px 10px;
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+tbody tr:hover {
+  background: #f9f3ec;
+}
+
+.map-cell {
+  white-space: nowrap;
+}
+
+.map-btn {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #fff;
+  margin-right: 4px;
+}
+
+.map-btn.naver {
+  background: #03c75a;
+}
+
+.map-btn.naver:hover {
+  background: #02a94c;
+}
+
+.map-btn.google {
+  background: #4285f4;
+}
+
+.map-btn.google:hover {
+  background: #3367d6;
+}
+
+#downloadBtn {
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  background: #4b3621;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+#downloadBtn:hover {
+  background: #634731;
+}
+
+/* ---------- 모바일 (768px 이하) ---------- */
+@media (max-width: 768px) {
+  header {
+    padding: 14px 16px;
+  }
+
+  header h1 {
+    font-size: 19px;
+  }
+
+  header .caption {
+    font-size: 12px;
+  }
+
+  .layout {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+    position: static;
+    padding: 12px;
+  }
+
+  #dongFilter {
+    max-height: 160px;
+  }
+
+  main {
+    gap: 12px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .metric-card {
+    padding: 10px 6px;
+  }
+
+  .metric-card .value {
+    font-size: 18px;
+  }
+
+  .metric-card .label {
+    font-size: 11px;
+  }
+
+  section.card {
+    padding: 12px 14px;
+  }
+
+  section.card h2 {
+    font-size: 14px;
+  }
+
+  #map {
+    height: 300px;
+  }
+
+  .chart-inner {
+    min-width: 600px;
+  }
+
+  .table-wrap {
+    max-height: 360px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  .map-btn {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}
+
+/* ---------- 소형 모바일 (420px 이하) ---------- */
+@media (max-width: 420px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+  }
+}

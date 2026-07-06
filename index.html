@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>충주시 카페 분석</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="cjCafe.css" />
+</head>
+<body>
+<header>
+  <h1>☕ 충북 충주시 카페 데이터 분석</h1>
+  <p class="caption">데이터 출처: 소상공인시장진흥공단_상가(상권)정보_충북_202603.csv</p>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>필터</h2>
+    <div class="filter-actions">
+      <button id="selectAll" type="button">전체 선택</button>
+      <button id="clearAll" type="button">전체 해제</button>
+    </div>
+    <div id="dongFilter"></div>
+    <label for="searchInput">상호명 검색</label>
+    <input id="searchInput" type="text" placeholder="예: 컴포즈" />
+  </aside>
+
+  <main>
+    <section class="metrics">
+      <div class="metric-card">
+        <span class="value" id="metricTotal">-</span>
+        <span class="label">전체 카페 수</span>
+      </div>
+      <div class="metric-card">
+        <span class="value" id="metricDongCount">-</span>
+        <span class="label">행정동 수</span>
+      </div>
+      <div class="metric-card">
+        <span class="value" id="metricTopDong">-</span>
+        <span class="label">카페 최다 행정동</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>행정동별 카페 수</h2>
+      <div class="chart-scroll">
+        <div class="chart-inner">
+          <canvas id="dongChart" height="100"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>카페 위치 지도</h2>
+      <div class="map-scroll">
+        <div id="map"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>상호명 상위 빈도 (프랜차이즈 추정)</h2>
+      <div class="chart-scroll">
+        <div class="chart-inner">
+          <canvas id="nameChart" height="130"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>상세 데이터 (<span id="tableCount">0</span>건)</h2>
+      <button id="downloadBtn" type="button">CSV 다운로드</button>
+      <div class="table-wrap">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th>상호명</th>
+              <th>행정동명</th>
+              <th>법정동명</th>
+              <th>도로명주소</th>
+              <th>지도</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="cjCafeData.js"></script>
+<script src="cjCafe.js"></script>
+</body>
+</html>
